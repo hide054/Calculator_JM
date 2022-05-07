@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.Scanner;
 public class Main{
     static int num1;
@@ -127,10 +129,8 @@ public class Main{
                 case "/" -> resultToInt = num1 / num2;
                 default -> throw new Exception("т.к. формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *).");
             }
-            if((num1 / num2) == 1) {
-                resultToInt = 1;
-            }else if((num1 - num2) < 1){
-                throw new Exception("т.к. в римской системе нет отрицательных чисел");
+            if(resultToInt <= 0) {
+                throw new Exception("т.к. в римской системе нет отрицательных чисел, чисел меньше единицы и нуля");
             }
             resultToString = romanNumbers[resultToInt];
         }
